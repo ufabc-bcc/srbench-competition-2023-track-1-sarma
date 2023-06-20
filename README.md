@@ -1,44 +1,42 @@
-# RILS -- Regression via Iterated Local Search
-RILS algorithm for GECCO2023 SR competition
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-8d59dc4de5201274e310e4c54b9627a8934c3b88527886e3b421487c677d23eb.svg)](https://classroom.github.com/a/2QvkhUcx)
+# Symbolic Regression GECCO Competition - 2023 - Track 1 - Performance
 
-# Installation instructions
+The participants will be free to experiment with these data sets until the deadline. 
+Analysis on each dataset should include the production of a single best model for each dataset, and an extended abstract discussing the pipeline.
 
-0. The program requires Python 3 (tested on version 3.11.3), but it should work on some earlier versions as well. 
-We also recommend using pip package manager. 
+At the competition submission deadline the repository of a participating team should contain:
 
-1. Download the repository and unpack it. 
+- [**required**] A file containing a single model as a **sympy-compatible expression**, selected as the best expression for that data set, named `dataset_X_best_model`.
+- [**required**] A maximum 4 page extended abstract in PDF format describing the algorithm and pipeline. This PDF must contain the name and contact information of the participants.
+- [to be eligible for prize] Reproducibility documentation in the `src` folder.
+    - Installation and execution instructions 
+    - Scripts (Jupyter Notebook is accepted) with detailed instructions of all steps used to produce models (including hyperparameters search, if any) 
 
-2. Install the following pip packages:
+## Evaluation criteria
 
-```console
-pip install numpy
-pip install sympy
-pip install scikit-learn
-pip install statsmodels
+The final score of each competitor will be composed of:
+
+- *acc*: Rank based on the accuracy (R^2) on a separate validation set for each data set.
+- *simpl*: Rank based on the a simplicity (number of nodes calculating by traversing the sympy expression) of the model for each data set.
+
+The rank will be calculated for each data set independently such that, with N participants, the k-th ranked competitor (k=1 being the best) will be assigned a value of *N - k + 1*. The final score will be the harmonic mean of all of the scores and each participant will be ranked accordingly:
+
+```python
+score = 2*n / sum([ (1/acc[i]) + (1/simpl[i]) for i in (1..n)])
 ```
 
-# Execution instructions
+## Suporting scripts
 
-1. Position inside the root directory of the unpacked repository. The (sub)directories at this level are: instances/, paper/, results/ and rils/.
-Directory instances/ holds datasets that are previously rounded to 9 decimals and saved in the tab separated .txt files.  
+Your repository will contain a script called `scores_test.py` that can be used to calculate the training set scores and verify that everything works as intended. This script will be used to determine the scores of each team on the test set and, subsequently, the ranks and final score. We also provide three files containing dummy models for each dataset to serve as an example. Please replace those with the real models.
 
-2. Call run_all.cmd or run_all.sh script depending on whether you use Windows or Linux. 
-If using Linux, you might need to change the accesss rights for this script, i.e. add x (execution) rights. 
-Also, you might need to change the name of python executable to python3 on some systems. 
-The content of run_all.{cmd|sh} file is as follows:
+## Repository License
 
-```console
-python run.py "instances/srbench_2023" "dataset_1.txt" 180 20
-python run.py "instances/srbench_2023" "dataset_2.txt" 100 10
-python run.py "instances/srbench_2023" "dataset_3.txt" 180 20
-```
+The repositories will be kept private during the whole competition and it will become open to the public **after** GECCO 2023 conference with a BSD-3 license. Please, make sure that you only keep files conforming to such license.
 
-3. The steps in the execution pipeline are explained in paper/rils_gecco2023.pdf. 
-Briefly, several output files will occurr during execution:
+## Deadline
 
-    1. best_sols_dataset_{1|2|3}.txt
-    2. log.txt
-    3. out.txt
+01 June 2023, 00:00 anywhere in the world.
 
-The model will be written inside out.txt.
-Note that there is semi-automated (interactive) simplification (step 4 in the paper) for the dataset_3. 
+## Question and issues
+
+Any questions and issues can be addressed to folivetti@ufabc.edu.br or at our Discord server (https://discord.gg/Dahqh3Chwy)
