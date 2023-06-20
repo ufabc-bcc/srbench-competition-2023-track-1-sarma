@@ -1,1 +1,1 @@
-0.39343*x0^2
+factor_terms(0.125*(sin(10*log(x10)) + sin(10*log(x1)) + sin(10*log(x5)) + sin(10*log(x6)) + sin(10*log(x7))+sin(10*log(x0))+sin(10*log(x11))+sin(10*log(x4))))

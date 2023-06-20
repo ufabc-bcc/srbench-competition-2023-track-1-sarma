@@ -19,7 +19,7 @@ pip install statsmodels
 
 # Execution instructions
 
-1. Position inside the root directory of the unpacked repository. The (sub)directories at this level are: instances/, paper/, results/ and rils/.
+1. Position inside the src/ directory. The directories at this level are: instances/ and rils/.
 Directory instances/ holds datasets that are previously rounded to 9 decimals and saved in the tab separated .txt files.  
 
 2. Call run_all.cmd or run_all.sh script depending on whether you use Windows or Linux. 
@@ -33,7 +33,7 @@ python run.py "instances/srbench_2023" "dataset_2.txt" 100 10
 python run.py "instances/srbench_2023" "dataset_3.txt" 180 20
 ```
 
-3. The steps in the execution pipeline are explained in paper/rils_gecco2023.pdf. 
+3. The steps in the execution pipeline are explained in ../paper/rils_gecco2023.pdf. 
 Briefly, several output files will occurr during execution:
 
     1. best_sols_dataset_{1|2|3}.txt
