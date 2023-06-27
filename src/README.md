@@ -3,7 +3,7 @@ RILS algorithm for GECCO2023 SR competition
 
 # Installation instructions
 
-0. The program requires Python 3 (tested on version 3.11.3), but it should work on some earlier versions as well. 
+0. The program requires Python 3 (tested on version 3.11.3 under Windows 10), but it should work on some earlier versions as well. 
 We also recommend using pip package manager. 
 
 1. Download the repository and unpack it. 
@@ -19,13 +19,13 @@ pip install statsmodels
 
 # Execution instructions
 
-1. Position inside the src/ directory. The directories at this level are: instances/ and rils/.
+1. Position inside the src/ directory. The directories at this level are: instances/ results/ and rils/.
 Directory instances/ holds datasets that are previously rounded to 9 decimals and saved in the tab separated .txt files.  
+Directory results/ holds execution results obtained on Windows 10 OS -- Linux OS was not tested. 
+Directory rils/ holds program codes. 
 
-2. Call run_all.cmd or run_all.sh script depending on whether you use Windows or Linux. 
-If using Linux, you might need to change the accesss rights for this script, i.e. add x (execution) rights. 
-Also, you might need to change the name of python executable to python3 on some systems. 
-The content of run_all.{cmd|sh} file is as follows:
+2. Call run_all.cmd on Windows OS. 
+The content of run_all.cmd file is as follows:
 
 ```console
 python run.py "instances/srbench_2023" "dataset_1.txt" 180 20
